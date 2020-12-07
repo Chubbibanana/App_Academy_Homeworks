@@ -1,4 +1,6 @@
+require 'byebug'
 class GraphNode
+    attr_reader :value
     attr_accessor :neighbors
     def initialize(value)
         @value = value
@@ -11,15 +13,18 @@ class GraphNode
             @neighbors << node
         end
     end
-
-    def bfs(starting_node, target_value)
+    
+    def self.bfs(starting_node, target_value)
         queue = [starting_node]
         parsed = []
         until queue.empty?
+            #queue.shift => [0, 1, 2] = 0
             next_node = queue.shift
             return next_node if next_node.value == target_value
-            add_to = next_node.children.select{|ele| !parsed.include?(ele)}
-            queue << add_to
+            parsed << next_node
+            add_to = next_node.neighbors.select{|ele| !parsed.include?(ele)}
+            queue.concat(add_to)
+            queue += add_to
         end
         nil
     end
@@ -35,4 +40,4 @@ a.neighbors = [b, c, e]
 c.neighbors = [b, d]
 e.neighbors = [a]
 f.neighbors = [e]
-bfs(a, 'b')
+p GraphNode.bfs(a, 'b')
