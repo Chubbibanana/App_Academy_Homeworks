@@ -86,3 +86,43 @@ Migrating to AddHouseIdToPeople (20201217172451)
   ↳ bin/rails:9
   [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3664083811000030320)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddIdToPeopleAndHouses (20201217173615)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.1ms)[0m  [1m[35mALTER TABLE "houses" ADD "id" integer NOT NULL[0m
+  ↳ db/migrate/20201217173615_add_id_to_people_and_houses.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3664083811000030320)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3664083811000030320)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddIdToPeopleAndHouses (20201217173615)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "people" ADD "id" integer NOT NULL[0m
+  ↳ db/migrate/20201217173615_add_id_to_people_and_houses.rb:3
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3664083811000030320)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3664083811000030320)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddIdToPeople (20201217174055)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.9ms)[0m  [1m[35mALTER TABLE "people" ADD "id" integer NOT NULL[0m
+  ↳ db/migrate/20201217174055_add_id_to_people.rb:3
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3664083811000030320)[0m
+  ↳ bin/rails:9
+  [1m[36mHouse Load (1.7ms)[0m  [1m[34mSELECT  "houses".* FROM "houses" ORDER BY "houses"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
